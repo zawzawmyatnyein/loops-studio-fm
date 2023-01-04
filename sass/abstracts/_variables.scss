@@ -1,0 +1,19 @@
+// colors
+$color-white: hsl(0, 0%, 100%);
+$color-black: hsl(0, 0%, 0%);
+$color-gray-dark: hsl(0, 0%, 55%);
+$color-gray-darker: hsl(0, 0%, 41%);
+
+// font
+$default-font-size: 0.9375rem; // 15px
+$heading-font-family: 'Josefin Sans', sans-serif;
+$body-font-family: 'Alata', sans-serif;
+
+// layout
+$container-width: 71.25rem; // 1140px
+
+// breakpoints
+$bp-sm: 31.25em; // 500px
+$bp-md: 48em; // 768px
+$bp-lg: 64em; // 1024px
+$bp-xl: 80em; // 1280px

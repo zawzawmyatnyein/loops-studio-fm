@@ -1,0 +1,237 @@
+.feature {
+    margin: 6rem 0;
+
+    @include md {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: 2rem;
+    }
+
+    @include lg {
+        margin: 8rem 0;
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    &__img {
+        @include md {
+            grid-column: 1 / 7;
+        }
+        @include lg {
+            grid-column: 1 / 8;
+            grid-row: 1 / -1;
+        }
+    }
+
+    &__text-box {
+        margin-top: 3rem;
+        padding: 0 2rem;
+        text-align: center;
+
+        @include sm {
+            padding: 0 3rem;
+        }
+        @include md {
+            margin-top: 0;
+            padding: 0;
+            grid-column: 7 / -1;
+            align-self: center;
+        }
+        @include lg {
+            text-align: start;
+            grid-row: 2 / -1;
+            padding: 3rem 0 0 3rem;
+            background-color: $color-white;
+            align-self: stretch;
+        }
+        @include xl {
+            padding: 5rem 0 0 5rem;
+        }
+    }
+
+    &__text {
+        margin-top: 1rem;
+        color: $color-gray-dark;
+    }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 1.5rem;
+
+    @include sm {
+        column-gap: 1.5rem;
+    }
+
+    @include lg {
+        align-items: center;
+    }
+
+    &__heading,
+    &__img,
+    &__btn {
+        grid-column: 1 / -1;
+    }
+
+    &__heading {
+        text-align: center;
+        padding-bottom: 2rem;
+
+        @include lg {
+            text-align: start;
+            padding-bottom: 0;
+            margin-bottom: 2rem;
+            grid-column: 1 / span 5;
+            order: 1;
+        }
+    }
+
+    &__img {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+
+        @include lg {
+            order: 3;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            background-image: linear-gradient(to right, hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0));
+            z-index: 2;
+
+            @include md {
+                height: 50%;
+                width: 100%;
+                background-image: linear-gradient(to top, hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0));
+            }
+        }
+
+        &:hover {
+            &::before {
+                width: 100%;
+                background-image: linear-gradient(to right, hsla(0, 0%, 100%, 0.7), hsla(0, 0%, 100%, 0.7));
+
+                @include md {
+                    height: 100%;
+                    background-image: linear-gradient(to top, hsla(0, 0%, 100%, 0.7), hsla(0, 0%, 100%, 0.7));
+                }
+            }
+        }
+
+        &--1 {
+            @include sm {
+                grid-column: 1 / span 6;
+            }
+            @include md {
+                grid-column: 1 / span 3;
+            }
+        }
+        &--2 {
+            @include sm {
+                grid-column: span 6 / -1;
+            }
+            @include md {
+                grid-column: 4 / span 3;
+            }
+        }
+        &--3 {
+            @include sm {
+                grid-column: 1 / span 6;
+            }
+            @include md {
+                grid-column: 7 / span 3;
+            }
+        }
+        &--4 {
+            @include sm {
+                grid-column: span 6 / -1;
+            }
+            @include md {
+                grid-column: span 3 / -1;
+            }
+        }
+        &--5 {
+            @include sm {
+                grid-column: 1 / span 6;
+            }
+            @include md {
+                grid-column: 1 / span 3;
+            }
+        }
+        &--6 {
+            @include sm {
+                grid-column: span 6 / -1;
+            }
+            @include md {
+                grid-column: 4 / span 3;
+            }
+        }
+        &--7 {
+            @include sm {
+                grid-column: 1 / span 6;
+            }
+            @include md {
+                grid-column: 7 / span 3;
+            }
+        }
+        &--8 {
+            @include sm {
+                grid-column: span 6 / -1;
+            }
+            @include md {
+                grid-column: span 3 / -1;
+            }
+        }
+
+    }
+
+    &__img:hover > &__img-caption {
+        color: $color-black;
+    }
+
+    &__img-caption {
+        position: absolute;
+        bottom: 15%;
+        left: 8%;
+        color: $color-white;
+        font-family: $heading-font-family;
+        font-size: 1.5rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        line-height: 1.1;
+        z-index: 3;
+
+        @include md {
+            bottom: 8%;
+            left: 10%;
+            font-size: 1.8rem;
+        }
+
+        @include xl {
+            font-size: 2rem;
+        }
+    }
+
+    &__btn {
+        justify-self: center;
+        margin-top: 1rem;
+
+        @include lg {
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+            justify-self: flex-end;
+            grid-column: span 3 / -1;
+            order: 2;
+        }
+    }
+}
